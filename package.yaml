@@ -1,0 +1,42 @@
+name: monopoly
+version: 0.0.1
+synopsis: Accounting for monopoly games
+maintainer: Bartosz Cybulski <patyczak.pat@vp.pl>
+github: Cebulllaaa/monopoly
+category: Game
+extra-source-files:
+  - README.md
+
+ghc-options: -Wall
+
+dependencies:
+  - base >= 4.9 && < 5
+  - bytestring
+  - deepseq
+  - filepath
+  - text
+  - containers
+  - transformers
+  - vector
+
+library:
+  source-dirs: library
+
+executable:
+  main: Main.hs
+  source-dirs: executable
+  dependencies:
+    - monopoly
+
+tests:
+  spec:
+    cpp-options: -DTEST
+    main: Spec.hs
+    source-dirs:
+      - test
+    dependencies:
+      - hspec
+      - QuickCheck
+      - temporary
+      - mockery >= 0.3
+      - interpolate

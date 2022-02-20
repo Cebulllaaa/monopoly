@@ -1,0 +1,86 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.6.
+--
+-- see: https://github.com/sol/hpack
+
+name:           monopoly
+version:        0.0.1
+synopsis:       Accounting for monopoly games
+category:       Game
+homepage:       https://github.com/Cebulllaaa/monopoly#readme
+bug-reports:    https://github.com/Cebulllaaa/monopoly/issues
+maintainer:     Bartosz Cybulski <patyczak.pat@vp.pl>
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/Cebulllaaa/monopoly
+
+library
+  exposed-modules:
+      Constant
+    , Players
+  other-modules:
+      Paths_monopoly
+  hs-source-dirs:
+      library
+  ghc-options: -Wall
+  build-depends:
+      base >=4.9 && <5
+    , bytestring
+    , containers
+    , deepseq
+    , filepath
+    , text
+    , transformers
+    , vector
+    , mtl
+  default-language: Haskell2010
+
+executable monopoly
+  main-is: Main.hs
+  other-modules:
+      Paths_monopoly
+  hs-source-dirs:
+      executable
+  ghc-options: -Wall
+  build-depends:
+      base >=4.9 && <5
+    , bytestring
+    , containers
+    , deepseq
+    , filepath
+    , monopoly
+    , text
+    , transformers
+    , vector
+    , mtl 
+  default-language: Haskell2010
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_monopoly
+  hs-source-dirs:
+      test
+  ghc-options: -Wall
+  cpp-options: -DTEST
+  build-depends:
+      QuickCheck
+    , base >=4.9 && <5
+    , bytestring
+    , containers
+    , deepseq
+    , filepath
+    , hspec
+    , interpolate
+    , mockery >=0.3
+    , temporary
+    , text
+    , transformers
+    , vector
+  default-language: Haskell2010
